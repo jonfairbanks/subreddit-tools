@@ -1,0 +1,5 @@
+flask
+markupsafe
+praw
+redis
+waitress

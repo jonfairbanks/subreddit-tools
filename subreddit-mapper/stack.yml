@@ -1,0 +1,18 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: https://fn.fairbanks.dev
+functions:
+  subreddit-mapper:
+    namespace: openfaas-fn
+    lang: dockerfile
+    handler: ./subreddit-mapper
+    image: jonfairbanks/subreddit-mapper:latest
+    secrets:
+    - subreddit-mapper
+    environment:
+      write_debug: true
+      combine_output: false
+      read_timeout: "5m"
+      write_timeout: "5m"
+      exec_timeout: "5m"

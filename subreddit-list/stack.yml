@@ -1,0 +1,16 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: https://fn.fairbanks.dev
+functions:
+  subreddit-list:
+    namespace: openfaas-fn
+    lang: python3-flask
+    handler: ./subreddit-list
+    image: jonfairbanks/subreddit-list:latest
+    secrets:
+    - subreddit-list
+    environment:
+      read_timeout: "5m"
+      write_timeout: "5m"
+      exec_timeout: "5m"

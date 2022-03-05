@@ -1,0 +1,16 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: https://fn.fairbanks.dev
+functions:
+  subreddit-scraper:
+    namespace: openfaas-fn
+    lang: python3
+    handler: ./subreddit-scraper
+    image: jonfairbanks/subreddit-scraper:latest
+    secrets:
+    - subreddit-scraper
+    environment:
+      read_timeout: "5m"
+      write_timeout: "5m"
+      exec_timeout: "5m"
